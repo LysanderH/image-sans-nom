@@ -23,3 +23,11 @@ L’objectif du site web est d’augmenter la visibilité de l’image sans nom 
     1.	[Les drapiers](https://www.lesdrapiers.be/bibliotheque-arts-textiles-art-contemporain-liege/)
     1.	[Tipi-bookshop](https://www.tipi-bookshop.be)
     1. ...
+
+Situé à Liège 
+Bibliothèque ouverte
+Horaire précis
+mettre ne avant le lieu et la philosophie
+partage d'ouverture
+Doit fonctionner sans image text ou vidéo
+Utilisation du jaune
