@@ -2,6 +2,10 @@
 
 L’image sans nom est un lieu dédié au livre et à la photographie. C’est un espace d’exposition, d’impression et de bibliothèque tout en un. Donc un espace convivial et parfait pour les personnes qui sont intéresser aux arts.
 
+## Liens utiles
+
+[Moodboard invision](https://lysander464196.invisionapp.com/board/Limage-sans-nom-ck7tgtnow112g18vvyhxapcwj?v=sIMA6fFxx%2Bj8PFaRs2%2F3mw%3D%3D&linkshare=urlcopied)
+
 ## Cahier des charges pour l’image sans nom 
 
 ### L’objectif du site web
@@ -23,11 +27,11 @@ L’objectif du site web est d’augmenter la visibilité de l’image sans nom 
     1.	[Les drapiers](https://www.lesdrapiers.be/bibliotheque-arts-textiles-art-contemporain-liege/)
     1.	[Tipi-bookshop](https://www.tipi-bookshop.be)
     1. ...
-
-Situé à Liège 
-Bibliothèque ouverte
-Horaire précis
-mettre ne avant le lieu et la philosophie
-partage d'ouverture
-Doit fonctionner sans image text ou vidéo
-Utilisation du jaune
+#### Notes supplémentaires
+* Situé à Liège 
+* Bibliothèque ouverte
+* Horaire précis
+* mettre ne avant le lieu et la philosophie
+* partage d'ouverture
+* Doit fonctionner sans image text ou vidéo
+* Utilisation du jaune
