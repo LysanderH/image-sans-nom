@@ -4,7 +4,9 @@ L’image sans nom est un lieu dédié au livre et à la photographie. C’est u
 
 ## Liens utiles
 
-[Moodboard invision](https://lysander464196.invisionapp.com/board/Limage-sans-nom-ck7tgtnow112g18vvyhxapcwj?v=sIMA6fFxx%2Bj8PFaRs2%2F3mw%3D%3D&linkshare=urlcopied)
+* [Moodboard invision](https://lysander464196.invisionapp.com/board/Limage-sans-nom-ck7tgtnow112g18vvyhxapcwj?v=sIMA6fFxx%2Bj8PFaRs2%2F3mw%3D%3D&linkshare=urlcopied)
+* [Architecture](./design/architecture/README.md)
+* [Wireframes](./design/wireframes/Wireframes_images-sans-nom.xd)
 
 ## Cahier des charges pour l’image sans nom 
 
