@@ -6,7 +6,7 @@ L’image sans nom est un lieu dédié au livre et à la photographie. C’est u
 
 * [Moodboard invision](https://lysander464196.invisionapp.com/board/Limage-sans-nom-ck7tgtnow112g18vvyhxapcwj?v=sIMA6fFxx%2Bj8PFaRs2%2F3mw%3D%3D&linkshare=urlcopied)
 * [Architecture](./design/architecture/README.md)
-* [Wireframes](./design/wireframes/Wireframes_image-sans-nom.xd)
+* [Wireframes](./design/wireframes)
 
 ## Cahier des charges pour l’image sans nom 
 
@@ -29,11 +29,12 @@ L’objectif du site web est d’augmenter la visibilité de l’image sans nom 
     1.	[Les drapiers](https://www.lesdrapiers.be/bibliotheque-arts-textiles-art-contemporain-liege/)
     1.	[Tipi-bookshop](https://www.tipi-bookshop.be)
     1. ...
+
 #### Notes supplémentaires
 * Situé à Liège 
 * Bibliothèque ouverte
 * Horaire précis
 * mettre ne avant le lieu et la philosophie
 * partage d'ouverture
-* Doit fonctionner sans image text ou vidéo
-* Utilisation du jaune
+* Les pages de livre et d'expo doivent fonctionner sans images, textes ou vidéos
+* L'utilisation du jaune est important
