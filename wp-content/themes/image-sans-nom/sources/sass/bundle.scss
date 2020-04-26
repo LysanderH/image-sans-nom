@@ -1,3 +1,23 @@
-body {
-  background: #fefefe;
-}
+// Settings
+@import "settings/colors";
+@import "settings/fonts";
+@import "settings/breakpoints";
+
+// Functions & mixins
+@import "functions/calculation-helpers-rem-pc";
+@import "functions/screen-reader";
+@import "functions/clearfix";
+@import "functions/font-mixins";
+@import "functions/width";
+@import "functions/margin-auto";
+@import "functions/pseudo";
+@import "functions/media-queries";
+
+// Generic
+@import "generic/reset";
+@import "generic/box-sizing";
+
+// Elements or base
+@import "elements/base";
+
+// Components
