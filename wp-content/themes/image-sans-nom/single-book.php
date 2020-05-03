@@ -6,10 +6,10 @@
             <span>By Cathy Alvarez</span>
         </div>
         <p class="book__video">
-            <?= get_the_content(); ?>
+            <?= the_content(); ?>
         </p>
         <!--    @TODO: if video exist echo video metha (acf)    -->
-        <iframe width="787" height="443" src="https://www.youtube.com/embed/asDlYjJqzWE?list=RDiywaBOMvYLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
         <!--    endif    -->
         <img src="#" srcset="" sizes="" alt="" class="book__img book__img--big">
         <img src="#" srcset="" sizes="" alt="" class="book__img">
