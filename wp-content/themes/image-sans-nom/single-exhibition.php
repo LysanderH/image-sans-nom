@@ -5,6 +5,9 @@
             <h2 class="exhibition__heading" id="exhibition-heading" role="heading"
                 aria-level="2"><?= the_title(); ?></h2>
             <span>By <?= get_field('artists'); ?></span>
+            <p class="date">Du <span> <?= get_field('startDate'); ?></span> au
+                <span> <?= get_field('endDate'); ?></span></p>
+
         </div>
         <p class="exhibition__video">
             <?= the_content(); ?>
