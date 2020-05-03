@@ -24,7 +24,7 @@ get_header();
             <h2 class="last-exhibition__heading" id="last-exhibition-heading" role="heading"
                 aria-level="2"><?= the_title(); ?></h2>
             <span class="last-exhibition__author"><?php the_field('artist'); ?></span>
-            <a href="<?= the_permalink(); ?>" class="last-exhibition__link">Découvrir l’exposition <span
+            <a href="<?php the_permalink(); ?>" class="last-exhibition__link">Découvrir l’exposition <span
                         class="sro">"<?= the_title(); ?>"</span></a>
         </div>
         <?php the_post_thumbnail('', ['alt' => 'Image montrant une partie de l’exposition ' . get_the_title()]); ?>
@@ -37,7 +37,7 @@ get_header();
         <div class="last-book__header">
             <h2 class="last-book__heading" id="last-book-heading" role="heading" aria-level="2"><?= the_title(); ?></h2>
             <span class="last-book__author"><?php the_field('artist'); ?></span>
-            <a href="<?= the_permalink(); ?>" class="last-book__link">Découvrir l’exposition <span
+            <a href="<?php the_permalink(); ?>" class="last-book__link">Découvrir l’exposition <span
                         class="sro">"<?= the_title(); ?>"</span></a>
         </div>
         <?php the_post_thumbnail('', ['alt' => 'Image montrant une partie de l’exposition ' . get_the_title()]); ?>
@@ -61,8 +61,10 @@ get_header();
 
 <section class="fb-submit">
     <h2 class="fb-submit__heading">Suivez nous sur Facebook</h2>
-    <img src="https://graph.facebook.com/limagesansnom/picture?type=large" alt="Foto de profil de l’image sans nom" class="fb-submit__img">
+    <img src="https://graph.facebook.com/limagesansnom/picture?type=large" alt="Foto de profil de l’image sans nom"
+         class="fb-submit__img">
     <a href="https://www.facebook.com/limagesansnom/" class="fb-submit__link button"><span class="sro">S’abonner à notre page </span>Facebook</a>
 </section>
 
+<a href="<?php echo esc_url(get_permalink(get_page_by_title('contact'))); ?>" class="cta">Contact</a>
 <?php get_footer(); ?>
