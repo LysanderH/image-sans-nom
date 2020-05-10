@@ -50,11 +50,11 @@ get_header();
     <?php wp_reset_query(); ?>
 <?php endwhile; endif; ?>
 
-<section class="newsletter">
-    <h2 class="newsletter__title"></h2>
+<section class="newsletter" aria-label="S’inscrire au newsletter">
+    <h2 class="newsletter__title" role="heading" aria-level="2">Newsletter</h2>
     <form action="/" class="newsletter__form" method="post">
-        <label for="" class="newsletter__label">Adresse mail</label>
-        <input type="email" class="newsletter__input">
+        <label for="mail" class="newsletter__label">Adresse mail</label>
+        <input type="email" id="mail" class="newsletter__input" name="email" placeholder="exemple@mail.com">
         <input type="submit" class="newsletter__submit button" value="S’abonner">
     </form>
 </section>

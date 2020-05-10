@@ -83,34 +83,34 @@ function isn_register_post_types()
 {
     /***
      * Register custom post type books/livres
-     * @todo translate to french & add labels to exhibitions
+     * @todo translate to french & add labels to exhibition
      */
     register_post_type('book', [
         'labels' => [
-            'name' => _x('Books', 'Post type general name', 'isn'),
-            'singular_name' => _x('Book', 'Post type singular name', 'isn'),
-            'menu_name' => _x('Books', 'Admin Menu text', 'isn'),
-            'name_admin_bar' => _x('Book', 'Add New on Toolbar', 'isn'),
-            'add_new' => __('Add New', 'isn'),
-            'add_new_item' => __('Add New Book', 'isn'),
-            'new_item' => __('New Book', 'isn'),
-            'edit_item' => __('Edit Book', 'isn'),
-            'view_item' => __('View Book', 'isn'),
-            'all_items' => __('All Books', 'isn'),
-            'search_items' => __('Search Books', 'isn'),
-            'parent_item_colon' => __('Parent Books:', 'isn'),
-            'not_found' => __('No books found.', 'isn'),
-            'not_found_in_trash' => __('No books found in Trash.', 'isn'),
-            'featured_image' => _x('Book Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'isn'),
-            'set_featured_image' => _x('Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'isn'),
-            'remove_featured_image' => _x('Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'isn'),
-            'use_featured_image' => _x('Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'isn'),
-            'archives' => _x('Book archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'isn'),
-            'insert_into_item' => _x('Insert into book', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'isn'),
-            'uploaded_to_this_item' => _x('Uploaded to this book', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'isn'),
-            'filter_items_list' => _x('Filter books list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'isn'),
-            'items_list_navigation' => _x('Books list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'isn'),
-            'items_list' => _x('Books list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'isn'),
+            'name' => _x('Livres', 'Post type general name', 'isn'),
+            'singular_name' => _x('Livre', 'Post type singular name', 'isn'),
+            'menu_name' => _x('Livres', 'Admin Menu text', 'isn'),
+            'name_admin_bar' => _x('Livre', 'Add New on Toolbar', 'isn'),
+            'add_new' => __('Ajouter un nouveau', 'isn'),
+            'add_new_item' => __('Ajouter un nouveau livre', 'isn'),
+            'new_item' => __('Nouveau livre', 'isn'),
+            'edit_item' => __('Éditer un livre', 'isn'),
+            'view_item' => __('Voir le livre', 'isn'),
+            'all_items' => __('Tous les livres', 'isn'),
+            'search_items' => __('Rechercher un livre', 'isn'),
+            'parent_item_colon' => __('Livres parent:', 'isn'),
+            'not_found' => __('Pas de livres trouvé.', 'isn'),
+            'not_found_in_trash' => __('Pas de livres trouvé dans la corbeille.', 'isn'),
+            'featured_image' => _x('L’image de couverture du livre', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'isn'),
+            'set_featured_image' => _x('Ajouter une image de couverture', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'isn'),
+            'remove_featured_image' => _x('Supprimer l’image de couverture', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'isn'),
+            'use_featured_image' => _x('Utiliser une image de couverture', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'isn'),
+            'archives' => _x('Archive des livres', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'isn'),
+            'insert_into_item' => _x('Ajouter dans livres', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'isn'),
+            'uploaded_to_this_item' => _x('Téléverser vers la fiche de ce livre', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'isn'),
+            'filter_items_list' => _x('Filtrer la liste des livres', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'isn'),
+            'items_list_navigation' => _x('Navigation de la liste des livres', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'isn'),
+            'items_list' => _x('Liste des livres', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'isn'),
         ],
         'taxonomies' => array('category', 'post_tag'),
         'public' => true,
@@ -148,22 +148,6 @@ function isn_register_post_types()
 }
 
 add_action('init', 'isn_register_post_types');
-
-/**
- * Add meta box "gallery" to post-type
- */
-function isn_exhibition_meta_box_cb () {
-    add_meta_box( 'exhibition' . '_details' , 'Media Library', 'isn_meta_box_details', 'exhibition', 'normal', 'high' );
-}
-function isn_book_meta_box_cb () {
-    add_meta_box( 'book' . '_details' , 'Media Library', 'isn_meta_box_details', 'book', 'normal', 'high' );
-}
-
-function isn_meta_box_details () {
-    global $post;
-    $post_ID = $post->ID; // global used by get_upload_iframe_src
-    printf( "<iframe frameborder='0' src=' %s ' style='width: 100%%; height: 400px;'> </iframe>", get_upload_iframe_src('media') );
-}
 
 /**
  * Get pagination links
