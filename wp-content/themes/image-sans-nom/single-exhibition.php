@@ -10,15 +10,28 @@
 
         </div>
         <p class="exhibition__video">
-            <?= the_content(); ?>
+            <?php the_content(); ?>
         </p>
         <!--    Get attached images  -->
-        <?php $images = get_attached_media('image');
-        foreach ($images as $image) {
-            echo wp_get_attachment_image($image->ID, 'small', '', ['class' => 'exhibition__img', 'alt' => 'Oeuvre de l’exposition ' . get_the_title()]);
-        }; ?>
+        <?php $images = get_field('gallery');
+
+        if ($images): ?>
+            <ul class="gallery">
+                <?php foreach ($images as $image): ?>
+                    <li class="gallery__item">
+                        <a href="<?php echo $image['url']; ?>" target="_blank" rel="noreferrer noopener"
+                           class="gallery__link">
+                            <!-- todo: srcset -->
+                            <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>"
+                                 class="gallery__img"/>
+                        </a>
+                        <p class="gallery__caption"><?php echo $image['caption']; ?></p>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
         <!--    end get attached images    -->
     </article>
-    <a href="<?= get_site_url(); ?>"></a>
+    <a href="javascript:history.back()" class="back-btn">Retour<span class="sro"> à la page précédente</span></a>
 <?php endwhile; endif; ?>
 <?php get_footer(); ?>

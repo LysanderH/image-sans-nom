@@ -1,60 +1,67 @@
 <?php
 /*
  * Template Name: Accueil
- */
+ */ get_header(); ?>
 
-$exhibitionLoop = new WP_Query([
+<?php $exhibitionLoop = new WP_Query([
         'post_type' => 'exhibition',
         'posts_per_page' => 1
-    ]
-);
-$bookLoop = new WP_Query([
-        'post_type' => 'book',
-        'posts_per_page' => 1
-    ]
-);
-
-get_header();
-?>
-
-
-<?php if (have_posts()): while ($exhibitionLoop->have_posts()): $exhibitionLoop->the_post(); ?>
+    ]);
+if (have_posts()): while ($exhibitionLoop->have_posts()): $exhibitionLoop->the_post(); ?>
     <article class="last-exhibition" aria-labelledby="last-exhibition-heading">
-        <div class="last-exhibition__header">
+        <label for="last-exhibition-input" class="last-exhibition__label last-exhibition__label--open">Lire le text</label>
+        <input type="checkbox" class="last-exhibition__input" id="last-exhibition-input">
+        <div class="last-exhibition__content">
+            <label for="last-exhibition-input" class="last-exhibition__label last-exhibition__label--close">fermer</label>
             <h2 class="last-exhibition__heading" id="last-exhibition-heading" role="heading"
                 aria-level="2"><?= the_title(); ?></h2>
             <span class="last-exhibition__author"><?php the_field('artist'); ?></span>
+            <p class="last-exhibition__excerpt"><?php the_excerpt(); ?></p>
             <a href="<?php the_permalink(); ?>" class="last-exhibition__link">Découvrir l’exposition <span
                         class="sro">"<?= the_title(); ?>"</span></a>
         </div>
-        <?php the_post_thumbnail('', ['alt' => 'Image montrant une partie de l’exposition ' . get_the_title()]); ?>
+        <img src="<?php the_post_thumbnail_url('home'); ?>"
+             srcset="<?php the_post_thumbnail_url('home-2x'); ?> x2"
+             sizes="" alt="Image de l’exposition <?= the_title(); ?>">
     </article>
-    <?php wp_reset_query(); ?>
+    <?php wp_reset_postdata(); ?>
 <?php endwhile; endif; ?>
 
-<?php if (have_posts()): while ($bookLoop->have_posts()): $bookLoop->the_post(); ?>
+<?php $bookLoop = new WP_Query([
+        'post_type' => 'book',
+        'posts_per_page' => 1
+    ]);
+if (have_posts()): while ($bookLoop->have_posts()): $bookLoop->the_post(); ?>
     <article class="last-book" aria-labelledby="last-book-heading">
-        <div class="last-book__header">
-            <h2 class="last-book__heading" id="last-book-heading" role="heading" aria-level="2"><?= the_title(); ?></h2>
+        <label for="last-book-input" class="last-book__label">Lire le text</label>
+        <input type="checkbox" class="last-book__input" id="last-book-input">
+        <div class="last-book__content">
+            <h2 class="last-book__heading" id="last-book-heading" role="heading"
+                aria-level="2"><?= the_title(); ?></h2>
             <span class="last-book__author"><?php the_field('artist'); ?></span>
+            <p class="last-book__excerpt"><?php the_excerpt(); ?></p>
             <a href="<?php the_permalink(); ?>" class="last-book__link">Découvrir l’exposition <span
                         class="sro">"<?= the_title(); ?>"</span></a>
         </div>
-        <?php the_post_thumbnail('', ['alt' => 'Image montrant une partie de l’exposition ' . get_the_title()]); ?>
+        <img src="<?php the_post_thumbnail_url('home'); ?>"
+             srcset="<?php the_post_thumbnail_url('home-2x'); ?> x2, <?php the_post_thumbnail_url('home-3x'); ?> 3x"
+             sizes="" alt="Image montrant une partie de l’exposition <?= the_title(); ?>">
     </article>
-    <?php wp_reset_query(); ?>
+    <?php wp_reset_postdata(); ?>
 <?php endwhile; endif; ?>
-
 <?php if (have_posts()): while (have_posts()): the_post(); ?>
-    <?php the_content(); ?>
-    <?php wp_reset_query(); ?>
+    <div class="citation">
+        <blockquote class="blockquote"><?php the_field('isn_quote'); ?></blockquote>
+        <cite class="cite">–<?php the_field('isn_cited'); ?></cite>
+    </div>
 <?php endwhile; endif; ?>
-
 <section class="newsletter" aria-label="S’inscrire au newsletter">
     <h2 class="newsletter__title" role="heading" aria-level="2">Newsletter</h2>
     <form action="/" class="newsletter__form" method="post">
         <label for="mail" class="newsletter__label">Adresse mail</label>
         <input type="email" id="mail" class="newsletter__input" name="email" placeholder="exemple@mail.com">
+        <label for="according" class="newsletter__label">Vous acceptez de recevoir les dernières informations de l’image sans nom par voie électronique. Vous pouvez vous désinscrire à tout moment en utilisant le lien de désinscription.</label>
+        <input type="checkbox" id="according" name="ok">
         <input type="submit" class="newsletter__submit button" value="S’abonner">
     </form>
 </section>

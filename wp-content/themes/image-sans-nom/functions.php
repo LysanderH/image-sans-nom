@@ -5,6 +5,18 @@
  */
 add_theme_support('post-thumbnails');
 
+
+add_action('after_setup_theme', 'isn_custom_add_image_sizes');
+function isn_custom_add_image_sizes()
+{
+//    Sizes contact-about
+    add_image_size('contact_a-propos', 623, 623, true);
+//    Homepage sizes
+    add_image_size('home', 783, 783, true);
+    add_image_size('home-2x', 1566, 1566, true);
+    add_image_size('home-post', 660, 500, true);
+}
+
 /**
  * Get theme assets
  */
@@ -26,9 +38,9 @@ function isn_get_title($separator = '-', $displayTitleLeft = true)
     }
 
     if ($displayTitleLeft) {
-        return trim(wp_title($separator, false, 'right') . get_bloginfo('name'));
+        return trim(wp_title($separator, false, 'right') . ' ' . $separator . ' ' . get_bloginfo('name'));
     } else {
-        return get_bloginfo('name') . wp_title($separator, false, 'left');
+        return get_bloginfo('name') . ' ' . $separator . ' ' . wp_title($separator, false, 'left');
     }
 }
 
@@ -83,7 +95,6 @@ function isn_register_post_types()
 {
     /***
      * Register custom post type books/livres
-     * @todo translate to french & add labels to exhibition
      */
     register_post_type('book', [
         'labels' => [
@@ -120,7 +131,6 @@ function isn_register_post_types()
         'has_archive' => true,
         'hierarchical' => false,
         'menu_position' => 5,
-        'register_meta_box_cb' => 'isn_book_meta_box_cb',
         'menu_icon' => 'dashicons-book',
         'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
     ]);
@@ -136,7 +146,6 @@ function isn_register_post_types()
         'description' => 'Ici sont repris tous les tutoriel',
         'menu_icon' => 'dashicons-welcome-learn-more',
         'menu_position' => 5,
-        'register_meta_box_cb' => 'isn_exhibition_meta_box_cb',
         'has_archive' => true,
         'supports' => [
             'title',
@@ -150,6 +159,32 @@ function isn_register_post_types()
 add_action('init', 'isn_register_post_types');
 
 /**
- * Get pagination links
+ * Remove default post Type
+ */
+add_action('admin_menu', 'remove_default_post_type');
+
+function remove_default_post_type()
+{
+    remove_menu_page('edit.php');
+}
+
+/**
+ * Remove default post Type from menu bar
  */
 
+add_action('admin_bar_menu', 'remove_default_post_type_menu_bar', 999);
+
+function remove_default_post_type_menu_bar($wp_admin_bar)
+{
+    $wp_admin_bar->remove_node('new-post');
+}
+
+/**
+ * Remove default post Type
+ */
+add_action('wp_dashboard_setup', 'remove_draft_widget', 999);
+
+function remove_draft_widget()
+{
+    remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
+}

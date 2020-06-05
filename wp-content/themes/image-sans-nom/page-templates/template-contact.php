@@ -3,13 +3,20 @@
 <?php if (have_posts()): while (have_posts()): the_post(); ?>
     <section class="about" aria-labelledby="about-heading">
         <h2 class="about__heading" id="about-heading" role="heading" aria-level="2">À-propos</h2>
-        <img src="#" srcset="" sizes="" alt="" class="about__img">
-        <div class="about__content wysiwyg"><?= the_content(); ?></div>
+        <?php
+        $image = get_field('isn_image_about');
+        if (!empty($image)): ?>
+            <img src="<?php echo esc_url($image['sizes']['contact_a-propos']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"/>
+        <?php endif; ?>
+        <div class="about__content wysiwyg"><?php the_field('description_isn'); ?></div>
     </section>
-<?php endwhile; endif; ?>
     <section class="contact">
         <h2 class="contact__heading" role="heading" aria-level="2">Contact</h2>
-        <img src="#" srcset="" sizes="" alt="" class="contact__img">
+        <?php
+        $image = get_field('isn_image_about');
+        if (!empty($image)): ?>
+            <img src="<?= esc_url($image['sizes']['contact_a-propos']); ?>" alt="<?= esc_attr($image['alt']); ?>"/>
+        <?php endif; ?>
         <form action="/contact" method="post" class="contact__form" role="form" aria-label="Contact">
             <fieldset>
                 <legend class="contact__legend" id="subject">Choix du sujet de contact</legend>
@@ -50,11 +57,14 @@
         <h2 class="info__heading" role="heading" aria-level="2">Informations de contact</h2>
         <dl class="info__list">
             <dt class="info__therm sro">Adresse de l’image sans nom</dt>
-            <dd class="info__definition">Place Vivegnis 6, B-4000 Liège</dd>
+            <dd class="info__definition"><?php the_field('isn_street'); ?> <?php the_field('isn_house-number'); ?>
+                , <?php the_field('isn_postal-code'); ?> <?php the_field('isn_country'); ?></dd>
             <dt class="info__therm sro">Adresse mail</dt>
-            <dd class="info__definition"><a href="mailto:limagesansnom@gmail.com">limagesansnom@gmail.com</a></dd>
+            <dd class="info__definition"><a
+                        href="mailto:<?php the_field('isn_email'); ?>"><?php the_field('isn_email'); ?></a></dd>
             <dt class="info__therm sro">Téléphone</dt>
-            <dd class="info__definition"><a href="tel:0032485847977">+32 (0)485 847 977</a></dd>
+            <dd class="info__definition"><a href="tel:0032485847977"><?php the_field('isn_phone'); ?></a></dd>
         </dl>
     </aside>
+<?php endwhile; endif; ?>
 <?php get_footer(); ?>

@@ -12,10 +12,32 @@ $loop = new WP_Query([
         <div class="books__header">
             <h2 class="books__heading" id="books-heading" role="heading" aria-level="2"><?= the_title(); ?></h2>
             <span class="books__author">Nom du fotographe</span>
-            <a href="<?= the_permalink(); ?>" class="books__link">Découvrir le livre <span class="sro">"<?= the_title(); ?>"</span></a>
+            <a href="<?php the_permalink(); ?>" class="books__link">Découvrir le livre <span
+                        class="sro">"<?= the_title(); ?>"</span></a>
         </div>
-        <img src="#" srcset="" sizes="" alt="" class="books__img">
-        <img src="#" srcset="" sizes="" alt="" class="books__img">
+        <!--    Get attached images  -->
+        <?php
+        $i = 0;
+        $images = get_field('gallery');
+
+        if ($images): ?>
+            <ul class="gallery">
+                <?php foreach ($images as $image): ?>
+                    <li class="gallery__item">
+                        <a href="<?php echo $image['url']; ?>" target="_blank" rel="noreferrer noopener"
+                           class="gallery__link">
+                            <!-- todo: srcset -->
+                            <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>"
+                                 class="gallery__img"/>
+                        </a>
+                        <p class="gallery__caption"><?php echo $image['caption']; ?></p>
+                    </li>
+                    <?php $i++;
+                    if ($i == 3) break; ?>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+        <!--    end get attached images    -->
     </article>
 <?php endwhile; endif; ?>
 <?php get_footer(); ?>

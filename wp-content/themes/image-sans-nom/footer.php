@@ -1,6 +1,6 @@
 </main>
 <footer class="footer">
-    <ul class="nav__list">
+    <ul class="nav__list" role="navigation" aria-label="<?= __('secondaire', 'isn') ?>">
         <?php foreach (isn_get_menu('footer', 'footer-nav__link') as $i => $link): ?>
             <li class="nav__item">
                 <a href="<?= $link->url; ?>"
@@ -14,7 +14,7 @@
         <?php endforeach; ?>
     </ul>
 </footer>
-<?php wp_footer(); ?>
-<script src="<?= bp_get_theme_asset('/assets/js/bundle.js'); ?>"></script>
+<?php //wp_footer(); ?>
+<script src="<?= isn_get_theme_asset('/assets/js/bundle.js'); ?>"></script>
 </body>
 </html>
