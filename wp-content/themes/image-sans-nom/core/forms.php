@@ -20,10 +20,27 @@ function isn_handleForm()
     }
 
     $name = sanitize_text_field($_POST['isn_name']);
+    $firstName = sanitize_text_field($_POST['isn_first-name']);
     $mail = sanitize_text_field($_POST['isn_mail']);
-    $date = Date('d/m/y', $_POST['isn_date']);
-    $time = Date('H:i', $_POST['isn_time']);
-    $visitors = (int) $_POST['isn_visitors'];
+    if (!empty($_POST['isn_date'])) {
+        $date = (strtotime($_POST['isn_date']));
+        $date = Date('d/m/Y', $date);
+        if (!$date) {
+            $errors['errors']['date'] = __('Veuillez donner une date correct.', 'isn');
+        } else {
+            $errors['good']['trueDate'] = Date('Y-m-d', $date);
+        }
+    }
+    if (!empty($_POST['isn_time'])) {
+        $time = Date('H:i', strtotime($_POST['isn_time']));
+        if (!$time) {
+            $errors['errors']['time'] = __('Veuillez donner une heure correct (10:00).', 'isn');
+        } else {
+            $errors['good']['trueTime'] = Date('H:i', $time);
+        }
+
+    }
+    $visitors = (int)$_POST['isn_visitors'];
     $message = sanitize_text_field($_POST['isn_content']);
     $errors = [];
 
@@ -33,17 +50,12 @@ function isn_handleForm()
         $errors['good']['trueName'] = $name;
     }
 
-    if (!$date) {
-        $errors['errors']['date'] = __('Veuillez donner une date correct.', 'isn');
+    if (!strlen($firstName)) {
+        $errors['errors']['firstName'] = __('Veuillez renseigner votre nom.', 'isn');
     } else {
-        $errors['good']['trueDate'] = Date('Y-m-d', $date);
+        $errors['good']['trueFirstName'] = $name;
     }
 
-    if (!$time) {
-        $errors['errors']['time'] = __('Veuillez donner une heure correct (10:00).', 'isn');
-    } else {
-        $errors['good']['trueTime'] = Date('H:i', $time);
-    }
 
     if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
         $errors['errors']['mail'] = __('Veuillez respecter le format du courriel (example@domaine.be).', 'isn');
@@ -61,12 +73,13 @@ function isn_handleForm()
         /** @noinspection PhpVoidFunctionResultUsedInspection */
         return isn_formRedirectFeedback($action, $errors);
     }
-
     $content = 'Un nouveau message est arrivé :' . PHP_EOL;
-    $content .= 'Nom : ' . $name . PHP_EOL;
+    $content .= 'Nom et prénom: ' . $name . ' ' . $firstName . PHP_EOL;
     $content .= 'Nombre de personnes : ' . $visitors . PHP_EOL;
     $content .= 'Mail : ' . $mail . PHP_EOL;
-    $content .= 'Le : ' . $date . ' &agrave; ' . $time . PHP_EOL;
+    if ($date || $time) {
+        $content .= 'Le : ' . $date . ' à ' . $time . PHP_EOL;
+    }
     $content .= 'Message :' . PHP_EOL;
     $content .= $message;
 
@@ -91,7 +104,7 @@ function isn_formRedirectFeedback($action, $feedback)
 
     $_SESSION['feedback_' . $action] = $feedback;
 
-    wp_safe_redirect($url);
+    wp_safe_redirect($url . '#contact');
 
     exit;
 }

@@ -12,7 +12,7 @@ $feedback = isn_formFeedback('isn_custom_form_treatment');?>
         <div class="about__content wysiwyg"><?php the_field('description_isn'); ?></div>
     </section>
 <?php endwhile; endif; ?>
-    <section class="contact">
+    <section class="contact" id="contact">
         <h2 class="contact__heading" role="heading" aria-level="2">Contact</h2>
         <?php
         $image = get_field('isn_image_about');
@@ -47,10 +47,10 @@ $feedback = isn_formFeedback('isn_custom_form_treatment');?>
                 <?php endif; ?>
 
                 <label for="fist-name" class="contact__label"><?= __('Prénom', 'isn'); ?></label>
-                <input type="text" id="first-name" class="contact__input contact__input--text" name="isn_name"
-                       placeholder="Max" value="<?= $feedback['good']['trueFirst-name']; ?>">
-                <?php if ($feedback['errors']['first-name']): ?>
-                    <label for="first-name" class="contact__error"><?= $feedback['errors']['first-name']; ?></label>
+                <input type="text" id="first-name" class="contact__input contact__input--text" name="isn_first-name"
+                       placeholder="Max" value="<?= $feedback['good']['trueFirstName']; ?>">
+                <?php if ($feedback['errors']['firstName']): ?>
+                    <label for="first-name" class="contact__error"><?= $feedback['errors']['firstName']; ?></label>
                 <?php endif; ?>
 
                 <label for="mail" class="contact__label"><?= __('Adresse mail', 'isn'); ?></label>
