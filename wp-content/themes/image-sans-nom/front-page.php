@@ -57,10 +57,11 @@ if (have_posts()): while ($bookLoop->have_posts()): $bookLoop->the_post(); ?>
 <?php endwhile; endif; ?>
 <section class="newsletter" aria-label="S’inscrire au newsletter">
     <h2 class="newsletter__title" role="heading" aria-level="2">Newsletter</h2>
-    <form action="/" class="newsletter__form" method="post">
+    <form action="https://lysanderhans.us19.list-manage.com/subscribe/post?u=0003759f72c5892412ad177ed&amp;id=a614a982d1" class="newsletter__form" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" rel="noopener noreferrer" novalidate>
         <label for="mail" class="newsletter__label">Adresse mail</label>
-        <input type="email" id="mail" class="newsletter__input" name="email" placeholder="exemple@mail.com">
+        <input type="email" id="mail" class="newsletter__input" name="EMAIL" placeholder="exemple@mail.com">
         <label for="according" class="newsletter__label">Vous acceptez de recevoir les dernières informations de l’image sans nom par voie électronique. Vous pouvez vous désinscrire à tout moment en utilisant le lien de désinscription.</label>
+        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_0003759f72c5892412ad177ed_a614a982d1" tabindex="-1" value=""></div>
         <input type="checkbox" id="according" name="ok">
         <input type="submit" class="newsletter__submit button" value="S’abonner">
     </form>
