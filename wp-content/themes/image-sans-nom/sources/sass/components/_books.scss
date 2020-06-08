@@ -1,0 +1,65 @@
+.books {
+  display: grid;
+  grid-template-columns: 0.38375fr 0.61625fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "img0 img1""content img1";
+  column-gap: $half-space;
+  row-gap: $half-space;
+  margin-bottom: $space;
+  @include media-query(0, 670px){
+    display: flex;
+    flex-direction: column;
+    margin-top: $space;
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    background: $books-background;
+    padding: $half-space;
+    grid-area: content;
+    @include media-query(0, 670px){
+      margin-top: 0;
+      order: 1;
+    }
+  }
+
+  &__heading {
+    @include novecento(25px);
+
+  }
+
+  &__img-wrapper {
+
+    &--0 {
+      grid-area: img0;
+    }
+
+    &--1 {
+      grid-area: img1;
+      overflow: hidden;
+      @include media-query(0, 670px){
+        display: none;
+      }
+    }
+  }
+
+  &__img {
+    height: auto;
+    width: 100%;
+
+  }
+
+  &__link {
+    margin-top: auto;
+    width: 80%;
+    @include media-query(0, 1024px) {
+      @include proxima(16px);
+    }
+  }
+
+  &__author {
+    @include media-query(0, 1024px) {
+      @include proxima(14px);
+    }
+  }
+}

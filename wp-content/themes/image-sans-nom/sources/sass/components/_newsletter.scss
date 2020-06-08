@@ -1,0 +1,59 @@
+.newsletter {
+  margin-top: $half-space;
+  padding: 24.5px;
+  display: flex;
+  flex-direction: column;
+  @include media-query(1023px, 1890px) {
+    margin-top: 0;
+  }
+  &__heading {
+    @include novecento(24px);
+    text-align: center;
+    margin-bottom: $half-space;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 400px;
+    margin: auto;
+  }
+
+  &__sub-heading {
+    @include proxima(18px, $text, $lh: 1.2)
+  }
+
+  &__label {
+    @include proxima(22px);
+    margin-top: $half-space / 2;
+    margin-bottom: $half-space / 6;
+  }
+
+  &__input {
+    @include proxima(22px);
+    border: 2px solid $input-border;
+    padding: $space / 8;
+    &:focus{
+      outline: none;
+      border: 2px solid $yellow;
+    }
+  }
+
+  &__trust {
+    @include proxima(16px, $lh: 1.2);
+    margin-top: $half-space;
+  }
+
+  &__link {
+    @include proxima(16px, $blue, $lh: 1.568181818181818);
+    &:hover {
+      color: $yellow;
+    }
+  }
+
+  &__submit {
+    @include button-reset;
+    margin-top: auto;
+  }
+}

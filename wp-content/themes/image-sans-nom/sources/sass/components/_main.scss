@@ -1,0 +1,17 @@
+.wrapper {
+  display: grid;
+  @include mq('header') {
+    margin: 0 auto;
+  }
+  // @todo: change variable 2
+  @include mq('desktop') {
+    grid-template-columns: 1fr 1fr;
+    column-gap: $half-space;
+  }
+}
+
+main {
+  max-width: 1600px;
+  overflow: hidden;
+  margin: auto;
+}

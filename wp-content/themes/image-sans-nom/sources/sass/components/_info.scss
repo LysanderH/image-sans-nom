@@ -1,0 +1,22 @@
+.info {
+  margin-bottom: $half-space;
+  padding: $space $half-space 0 $half-space;
+
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: $half-space;
+    row-gap: $half-space;
+    grid-template-areas: "street .""country .";
+    @include proxima(16px);
+  }
+
+  &__street {
+    grid-area: street;
+  }
+
+  &__country {
+    grid-area: country;
+  }
+}

@@ -1,0 +1,37 @@
+.about {
+  position: relative;
+  display: flex;
+  @include media-query(0, 1023px) {
+    flex-direction: column;
+    padding: $space;
+  }
+  @include mq('desktop') {
+    padding: $space 0 $space $half-space;
+  }
+
+  &__img {
+    align-self: flex-start;
+    height: auto;
+    max-width: 100%;
+    flex: 1;
+    box-shadow: (-$space) (-$half-space) 0px 0px $red;
+    margin-right: $half-space;
+    @include media-query(0, 1023px) {
+      box-shadow: none;
+      margin-bottom: $half-space;
+    }
+  }
+
+  &__heading {
+    @include novecento(40px, $yellow);
+    position: absolute;
+    top: .5em;
+
+  }
+
+  &__content {
+    flex: 1;
+    @include proxima(16px, $text, $lh: 1.5);
+  }
+
+}

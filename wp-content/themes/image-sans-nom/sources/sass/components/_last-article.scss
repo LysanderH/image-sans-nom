@@ -1,0 +1,132 @@
+.last-article {
+  position: relative;
+  margin-top: $space;
+  transition: transform .2s ease-in-out;
+  @include media-query(0, 1023px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input {
+    @include mq('zero') {
+      display: none;
+    }
+
+  }
+
+  &__label {
+    @include proxima(30px);
+    width: 100%;
+    text-align: center;
+    padding: .5em 0;
+
+    &:hover:after {
+      opacity: 1;
+    }
+
+    &:after {
+      @include pseudo();
+      background-color: $white;
+      opacity: .5;
+      transition: opacity .15s;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    @include media-query(0, 1023px) {
+      display: none;
+    }
+    @include mq('desktop') {
+      position: absolute;
+    }
+    &--close {
+      display: flex;
+      right: 0;
+      top: 0;
+      width: 25%;
+      &:after{
+        width: 20px;
+        background: url($assets-url + "img/back.svg") no-repeat 50% 50%;
+        opacity: 1;
+        left: -25px;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease-in-out;
+    @include media-query(0, 1023px) {
+      order: 1;
+      padding: 24.5px 24.5px 0 24.5px;
+      flex: 1;
+    }
+    @include mq('desktop') {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      padding: $space;
+      background: $white;
+    }
+
+    &--left {
+      @include mq('desktop') {
+        transform: translate(-100%, 0);
+      }
+    }
+
+    &--right {
+      @include mq('desktop') {
+        transform: translate(100%, 0);
+      }
+    }
+
+  }
+
+  &__heading {
+    @include mq('zero') {
+      @include novecento(24px);
+      margin-bottom: $half-space;
+    }
+  }
+
+  &__excerpt {
+    @include proxima(22px, $lh: 1.568181818181818);
+  }
+
+  &__link {
+    margin-top: auto;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    @include media-query(0, 1023px) {
+      order: 0;
+    }
+    @include mq('desktop') {
+      position: relative;
+      z-index: -2;
+    }
+  }
+}
+
+@include mq('desktop') {
+  .last-exhibition__input:checked ~ .last-exhibition {
+    transform: translate(100%, 0);
+  }
+  .last-exhibition__input:checked ~ .last-exhibition .last-article__label--left {
+    display: none;
+  }
+  .last-book__input:checked ~ .last-book {
+    transform: translate(-100%, 0);
+  }
+  .last-book__input:checked ~ .last-book .last-article__label--right {
+    display: none;
+  }
+}

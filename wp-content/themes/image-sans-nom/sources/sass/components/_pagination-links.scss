@@ -1,0 +1,8 @@
+.pagination-links {
+  text-align: center;
+  padding: $half-space;
+}
+.page-numbers {
+  @include proxima(18px);
+  margin-left: $half-space;
+}

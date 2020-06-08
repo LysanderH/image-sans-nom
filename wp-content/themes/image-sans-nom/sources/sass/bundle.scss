@@ -1,4 +1,5 @@
 // Settings
+@import "settings/variables";
 @import "settings/colors";
 @import "settings/fonts";
 @import "settings/breakpoints";
@@ -12,6 +13,7 @@
 @import "functions/margin-auto";
 @import "functions/pseudo";
 @import "functions/media-queries";
+@import "functions/btn-reset";
 
 // Generic
 @import "generic/reset";
@@ -19,5 +21,23 @@
 
 // Elements or base
 @import "elements/base";
-
+@import "elements/fonts";
 // Components
+@import "components/global";
+@import "components/header";
+@import "components/last-article";
+@import "components/citation";
+@import "components/newsletter";
+@import "components/fb-submit";
+@import "components/cta";
+@import "components/footer";
+@import "components/main";
+@import "components/books";
+@import "components/follow";
+@import "components/about";
+@import "components/contact";
+@import "components/map";
+@import "components/info";
+@import "components/book-single";
+@import "components/pagination-links";
+@import "components/skip-main";

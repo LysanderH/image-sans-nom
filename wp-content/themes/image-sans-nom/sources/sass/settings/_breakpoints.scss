@@ -1,17 +1,9 @@
 $breakpoints: (
-        "mobile": 0,
+        "zero": 0,
+        "mobile": 479px,
+        "header": 670px,
         "tablet-small": 767px,
-        "tablet": 923px,
-        "burger": 1000px,
+        "tablet": 991px,
         "desktop": 1024px,
         "desktop-wide": 1248px
 );
-//"mobile":        767px,
-
-//"tablet-small": 923px,
-
-//"tablet":       1024px,
-
-//"desktop":      1248px,
-
-//"desktop-wide": 1440px

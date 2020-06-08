@@ -1,0 +1,19 @@
+.footer {
+  background: $text;
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__link {
+    @include proxima(16px, $white);
+    text-decoration: none;
+    padding: $space / 4;
+    display: inline-block;
+    transition: color .2s ease-in-out;
+    &:hover{
+      color: $red;
+    }
+  }
+}

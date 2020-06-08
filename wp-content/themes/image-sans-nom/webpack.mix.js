@@ -14,7 +14,7 @@ let mix = require('laravel-mix');
 mix.js('sources/js/bundle.js', 'assets/js')
     .sass('sources/sass/bundle.scss', 'assets/css')
     .copy('sources/fonts', 'assets/fonts')
-    .copy('sources/img', 'assets/fonts')
+    .copy('sources/img', 'assets/img')
     .options({
         postCss: [
             require('autoprefixer')({

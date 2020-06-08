@@ -1,0 +1,52 @@
+.book, .exhibition {
+  padding: 0 $space;
+  &__heading {
+    @include novecento(22px);
+    margin-top: $space;
+  }
+
+  &__author {
+    display: block;
+    @include proxima(16px, $text);
+    margin-top: $half-space / 2;
+  }
+
+  &__download {
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include proxima(16px, $black);
+  }
+  &__date {
+    @include proxima(16px, $text);
+    margin: $half-space;
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__content {
+    margin-top: $half-space;
+    @include proxima(16px, $text, $lh: 1.2);
+    max-width: 740px;
+  }
+}
+.back-btn {
+  margin-bottom: $space;
+}
+
+.gallery {
+  margin-top: $space;
+  display: grid;
+  column-gap: $half-space;
+  row-gap: $half-space;
+  @include mq('desktop') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+}

@@ -46,7 +46,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- This content *may* be used as a part of search engine results. -->
-    <meta name="description" content="L’image sans nom est un lieu dédié à la photographie situé à Liège">
+<!--    <meta name="description" content="L’image sans nom est un lieu dédié à la photographie situé à Liège">-->
 
     <!-- Identify the software used to build the document (i.e. - WordPress, Dreamweaver) -->
     <meta name="generator" content="WordPress">
@@ -61,8 +61,6 @@
     <!-- Disable automatic detection and formatting of possible phone numbers -->
     <meta name="format-detection" content="telephone=no">
 
-    <!-- Specifies the document to appear in a specific frame -->
-    <meta http-equiv="Window-Target" content="_value">
 
     <!-- Geo tags -->
     <meta name="ICBM" content="50.6833,5.55">
@@ -85,20 +83,36 @@
 <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v7.0&appId=2728232140733180"></script>
 <header class="header">
-    <h1 role="heading" aria-level="1"><?= the_title(); ?></h1>
-    <label for="header-input-nav" class="header__label">Burger Menu</label>
+    <a class="skip-main" href="#main">Allez au contenu principal</a>
+    <h1 role="heading" aria-level="1" class="header__heading"><?= the_title(); ?></h1>
+    <label for="header-input-nav" class="header__label header__label--open">Ouvrir le menu</label>
     <input type="checkbox" class="header__input" id="header-input-nav">
-    <nav class="nav" role="navigation" aria-label="Principale">
-        <h2 class="nav__heading" role="heading" aria-level="2">Navigation principale</h2>
-        <ul class="nav__list">
+    <nav class="nav global" role="navigation" aria-label="Principale" aria-expanded="false">
+        <h2 class="nav__heading global__heading sro" role="heading" aria-level="2">Navigation principale</h2>
+        <label for="header-input-nav" class="header__label header__label--close global__label global__label--close">Fermer le menu</label>
+        <ul class="nav__list global__list" role=menu>
             <?php foreach (isn_get_menu('main', 'nav__link') as $i => $link): ?>
-                <li class="nav__item">
+                <li class="nav__item global__item">
                     <a href="<?= $link->url; ?>"<?php if ($link->target): ?> target="<?= $link->target; ?>" rel="noopener noreferrer"<?php endif; ?><?php if ($link->current): ?> aria-current="page"<?php endif; ?>
-                       class="<?php if ($link->classes): ?><?= implode('', $link->classes); ?><?php endif; ?>"><?= $link->label; ?></a>
+                       class="global__link <?php if ($link->classes): ?><?= implode('', $link->classes); ?><?php endif; ?>" role="menuitem"><?= $link->label; ?></a>
                 </li>
             <?php endforeach; ?>
         </ul>
     </nav>
+    <?php if (have_posts()): while (have_posts()): the_post(); ?>
+        <?php
+        $image1 = get_field('isn_heading_img_1');
+        $image2 = get_field('isn_heading_img_2');
+        if (!empty($image1) || !empty($image2)): ?>
+            <img src="<?= esc_url($image1['sizes']['header']); ?>" srcset="<?= esc_url($image1['sizes']['header-mobile']); ?> 375w,<?= esc_url($image1['sizes']['header-tablet']); ?> 768w, <?= esc_url($image1['sizes']['header']); ?> 1024w, <?= esc_url($image1['sizes']['header-big-screens']); ?> 1280w"
+                 sizes="(max-width: 375px) 375px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1280px) 1280px" alt="Image de garde"
+                 class="header__img header__img--left">
+            <img src="<?= esc_url($image2['sizes']['header']); ?>" srcset="<?= esc_url($image2['sizes']['header-mobile']); ?> 375w,<?= esc_url($image2['sizes']['header-tablet']); ?> 768w, <?= esc_url($image2['sizes']['header']); ?> 1024w, <?= esc_url($image2['sizes']['header-big-screens']); ?> 1280w"
+                 sizes="(max-width: 375px) 375px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1280px) 1280px" alt="Image de garde"
+                 class="header__img header__img--right">
+        <?php endif; ?>
+    <?php endwhile; endif; ?>
+
     <a href="#main" class="header__scroll-link"><?= __('scroller vers le bas', 'isn'); ?></a>
 </header>
-<main id="main">
+<main id="main" class="main">

@@ -1,0 +1,120 @@
+.header {
+  position: relative;
+  background: linear-gradient(0, $blue 50%, $red 50%);
+  border: 10px solid $black;
+
+  @include media-query(0px, 670px) {
+    width: 100%;
+    min-height: 50vh;
+  }
+
+  @include mq('header') {
+    min-height: 90vh;
+    max-width: 95vw;
+    margin: 5vh 5vw;
+  }
+
+  &__img {
+    position: absolute;
+    display: block;
+    @media screen and (orientation: landscape) {
+      max-height: 80vh;
+      max-width: 70%;
+      width: auto;
+      height: auto;
+    }
+    @media screen and (orientation: portrait) {
+      max-height: 70%;
+      max-width: 80vw;
+      width: auto;
+      height: auto;
+    }
+
+    &--right {
+      top: 0;
+      right: 0;
+    }
+
+    &--left {
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &__scroll-link {
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    right: calc(-2.5vw - 75px);
+    transform: rotate(90deg);
+    padding: 0.1em 0.2em;
+    @include proxima(16px, $red);
+    border-bottom: 2px solid $red;
+    border-left: 2px solid $red;
+    @include media-query(0px, 670px) {
+      display: none;
+    }
+  }
+
+  &__heading {
+    position: absolute;
+    background: $yellow;
+    padding: .5rem 1rem;
+    z-index: 10;
+    @include novecento(25px);
+    top: 10%;
+    left: 5vw;
+    @include media-query(670px, 1024px) {
+      font-size: calculateRem(33px);
+    }
+    @include mq('desktop') {
+      font-size: calculateRem(83px);
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__input:checked ~ .nav {
+    transform: translate(0, 0);
+  }
+
+  &__label {
+    cursor: pointer;
+
+    &--open {
+      @include button-reset;
+
+      position: absolute;
+      top: calc(50% - 45px);
+      left: calc(50% - 45px);
+      display: inline-block;
+      width: 90px;
+      height: 90px;
+      background: $yellow url($assets-url + "img/burger.svg") no-repeat 50% 50%;
+      background-size: 55px;
+      z-index: 10;
+      text-indent: -9999em;
+    }
+
+    &--close {
+      @include button-reset;
+
+      position: absolute;
+      top: 8vh;
+      right: 15vw;
+      @include novecento(16px);
+      transition: color .2s ease-in-out;
+
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+}
+.menu-is-open{
+  pointer-events: none;
+}
+
+

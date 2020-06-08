@@ -1,0 +1,53 @@
+.citation {
+  background: $yellow no-repeat;
+  margin-top: $space;
+  position: relative;
+  @include mq('zero') {
+    padding: 24.5px;
+  }
+  @include mq('desktop') {
+    grid-column: 1/span 2;
+    padding: $space;
+  }
+
+  &:before {
+    @include pseudo();
+    z-index: 1;
+    background: url($assets-url + "img/quote.svg") no-repeat;
+    background-size: contain;
+    opacity: 0.3;
+    @include media-query(0, 1023px) {
+      width: 50px;
+      height: 80px;
+      top: 12.25px;
+      left: 12.25px;
+    }
+    @include mq('desktop') {
+      @include proxima(60px);
+      width: 80px;
+      height: 100px;
+      top: $half-space;
+      left: $half-space;
+    }
+  }
+
+  &__blockquote {
+    @include mq('zero') {
+      @include proxima(22px, $lh: 1.6);
+    }
+    @include mq('desktop') {
+      @include proxima(60px);
+    }
+
+  }
+
+  &__cite {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    margin-top: $half-space;
+    @include mq('zero') {
+      @include proxima(18px, $weight: bold);
+    }
+  }
+}

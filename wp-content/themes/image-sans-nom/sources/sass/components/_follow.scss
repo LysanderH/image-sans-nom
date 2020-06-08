@@ -1,0 +1,11 @@
+.follow {
+
+  @include media-query(0, 670px) {
+    display: flex;
+    flex-direction: column;
+  }
+  @include mq('header') {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

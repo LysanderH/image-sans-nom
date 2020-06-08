@@ -1,0 +1,67 @@
+.contact {
+  display: flex;
+  position: relative;
+  @include mq('desktop') {
+    padding: $space 0 $space $half-space;
+  }
+  @include media-query(0, 1023px) {
+    flex-direction: column;
+    padding: $space $space 0 $space;
+  }
+
+  &__img {
+    height: auto;
+    align-self: flex-start;
+    max-width: 100%;
+
+    flex: 1;
+    box-shadow: (-$space) (-$half-space) 0px 0px $blue;
+    margin-right: $half-space;
+    @include media-query(0, 1023px) {
+      box-shadow: none;
+    }
+  }
+
+  &__heading {
+    @include novecento(40px, $yellow);
+    position: absolute;
+    top: .5em;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    @include proxima(16px, $text, $lh: 1.5);
+    @include media-query(0, 1023px) {
+      margin-top: $half-space;
+    }
+  }
+
+  &__btn {
+    @include button-reset;
+    margin-right: 5px;
+    justify-self: flex-end;
+  }
+
+  &__label {
+    margin-bottom: $half-space / 3;
+  }
+
+  &__input {
+    padding: .5em .3em;
+    @include proxima(16px);
+    margin-bottom: $half-space;
+
+    &:focus {
+      outline: none;
+      border: 2px solid $blue;
+    }
+  }
+
+  &__error {
+    color: $red;
+    margin-bottom: $half-space;
+  }
+}
+

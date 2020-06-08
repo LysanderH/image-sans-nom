@@ -1,6 +1,6 @@
 // Font
-@mixin font-fira-sans($size: false, $colour: false, $weight: false,  $lh: false) {
-  font-family: 'Fira Sans', sans-serif;
+@mixin novecento($size: false, $colour: false, $weight: false,  $lh: false) {
+  font-family: 'Novecento', sans-serif;
   @if $size {
     font-size: $size;
     font-size: calculateRem($size);
@@ -15,8 +15,9 @@
     line-height: $lh;
   }
 }
-@mixin font-montserrat($size: false, $colour: false, $weight: false,  $lh: false) {
-  font-family: 'Montserrat', sans-serif;
+
+@mixin proxima($size: false, $colour: false, $weight: false,  $lh: false) {
+  font-family: 'Proxima Nova Alt Rg', sans-serif;
   @if $size {
     font-size: $size;
     font-size: calculateRem($size);
@@ -36,12 +37,12 @@
 @mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
   @font-face {
     font-family: quote($font-name);
-    src: url('../../fonts/' + $file-name + '.eot');
-    src: url('../../fonts/' + $file-name + '.eot?#iefix') format('embedded-opentype'),
-    url('../../fonts/' + $file-name + '.woff2') format('woff2'),
-    url('../../fonts/' + $file-name + '.woff') format('woff'),
-    url('../../fonts/' + $file-name + '.ttf') format('truetype'),
-    url('../../fonts/' + $file-name + '.svg##{$font-name}') format('svg');
+    src: url($assets-url + 'fonts/' + $file-name + '.eot');
+    src: url($assets-url + 'fonts/' + $file-name + '.eot?#iefix') format('embedded-opentype'),
+    url($assets-url + 'fonts/' + $file-name + '.woff2') format('woff2'),
+    url($assets-url + 'fonts/' + $file-name + '.woff') format('woff'),
+    url($assets-url + 'fonts/' + $file-name + '.ttf') format('truetype'),
+    url($assets-url + 'fonts/' + $file-name + '.svg##{$font-name}') format('svg');
     font-weight: $weight;
     font-style: $style;
   }
