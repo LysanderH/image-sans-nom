@@ -1,6 +1,7 @@
 .map {
   &__gmap {
     width: 100%;
+    max-width: 100vw;
   }
 
   margin: $space 0;

@@ -7,7 +7,15 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  background: url($assets-url + "/img/cta.jpg") no-repeat 50% 50%;
+  @include media-query(0, 600px){
+    background: url($assets-url + "/img/cta-min.jpg") no-repeat 50% 50%;
+  }
+  @include media-query(600px, 1280px){
+    background: url($assets-url + "/img/cta-mid.jpg") no-repeat 50% 50%;
+  }
+  @include mq('desktop-wide') {
+    background: url($assets-url + "/img/cta.jpg") no-repeat 50% 50%;
+  }
   background-size: cover;
   position: relative;
   margin-bottom: $half-space;
@@ -24,7 +32,7 @@
     transition: opacity .2s;
   }
 
-  &:hover:before {
+  &:hover:before, &:focus:before {
     opacity: .4;
   }
 }

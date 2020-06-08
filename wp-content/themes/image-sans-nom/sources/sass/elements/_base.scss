@@ -41,6 +41,9 @@ body {
   @include mq('header'){
     font-size: calculateRem(21px);
   }
+  @include media-query(0, 760px){
+    margin-top: $half-space;
+  }
 }
 
 .btn:before {

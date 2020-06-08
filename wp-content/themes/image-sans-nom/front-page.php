@@ -26,9 +26,9 @@ get_header(); ?>
                     l’exposition <span
                             class="sro">"<?= the_title(); ?>"</span></a>
             </div>
-            <img src="<?php the_post_thumbnail_url('home'); ?>"
-                 srcset="<?php the_post_thumbnail_url('home-mobile'); ?> 600w, <?php the_post_thumbnail_url('home'); ?> 780w, <?php the_post_thumbnail_url('home-big-screens'); ?> 1024w"
-                 sizes="(max-width: 375px) 375px, (max-width: 783px) 783px, (max-width: 1024px) 1024px" alt="Image de l’exposition <?= the_title(); ?>" class="last-article__img">
+            <img src="<?php the_post_thumbnail_url('home-mobile'); ?>"
+                 srcset="<?php the_post_thumbnail_url('home-mobile'); ?> 600w, <?php the_post_thumbnail_url('home'); ?> 1024w, <?php the_post_thumbnail_url('home-big-screens'); ?> 1280w"
+                 sizes="(max-width: 375px) 375px, (max-width: 1024px) 1024px, (max-width: 1280px) 1280px" alt="Image de l’exposition <?= the_title(); ?>" class="last-article__img">
         </article>
         <?php wp_reset_postdata(); ?>
     <?php endwhile; endif; ?>
@@ -53,9 +53,9 @@ get_header(); ?>
                     <span
                             class="sro">"<?= the_title(); ?>"</span></a>
             </div>
-            <img src="<?php the_post_thumbnail_url('home'); ?>"
-                 srcset="<?php the_post_thumbnail_url('home-mobile'); ?> 600w, <?php the_post_thumbnail_url('home'); ?> 780w, <?php the_post_thumbnail_url('home-big-screens'); ?> 1024w"
-                 sizes="(max-width: 375px) 375px, (max-width: 783px) 783px, (max-width: 1024px) 1024px" alt="Image montrant une partie de l’exposition <?= the_title(); ?>" class="last-article__img">
+            <img src="<?php the_post_thumbnail_url('home-mobile'); ?>"
+                 srcset="<?php the_post_thumbnail_url('home-mobile'); ?> 600w, <?php the_post_thumbnail_url('home'); ?> 1024w, <?php the_post_thumbnail_url('home-big-screens'); ?> 1280w"
+                 sizes="(max-width: 375px) 375px, (max-width: 783px) 783px, (max-width: 1280px) 1280px" alt="Image montrant une partie de l’exposition <?= the_title(); ?>" class="last-article__img">
         </article>
         <?php wp_reset_postdata(); ?>
     <?php endwhile; endif; ?>
