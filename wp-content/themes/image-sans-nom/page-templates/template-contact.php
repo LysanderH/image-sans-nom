@@ -86,7 +86,7 @@ $feedback = isn_formFeedback('isn_custom_form_treatment'); ?>
     <aside class="map" aria-label="Carte interactive pointant sur l’adresse&nbsp;: Place Vivegnis 6, B-4000 Liège">
         <h2 class="map__heading sro" role="heading" aria-level="2">Carte interactive</h2>
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10118.63737053776!2d5.5890223!3d50.6520175!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3c386ea52038923!2sL&#39;image%20Sans%20Nom!5e0!3m2!1sde!2sbe!4v1591542320511!5m2!1sde!2sbe"
-                width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
                 tabindex="0" class="map__gmap"></iframe>
     </aside>
     <aside class="info">

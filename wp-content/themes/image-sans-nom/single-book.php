@@ -92,7 +92,7 @@
                         <a href="<?php echo $image['url']; ?>" target="_blank" rel="noreferrer noopener"
                            class="gallery__link">
                             <!-- todo: srcset -->
-                            <img src="<?php echo $image['sizes']['large']; ?>"
+                            <img src="<?php echo $image['sizes']['single-mobile']; ?>"
                                  srcset="<?php echo $image['sizes']['single-mobile']; ?> 375vw, <?php echo $image['sizes']['single-tablet']; ?> 783vw, <?php echo $image['sizes']['single-desktop']; ?> 1024vw, <?php echo $image['sizes']['single-big-screens']; ?> 1280vw"
                                  sizes="(max-width: 375px) 375px, (max-width: 783px) 783px, (max-width: 1024px) 1024px, (min-width: 1280px) 1280px"alt="<?php if ($image['alt']) {
                                 echo $image['alt'];

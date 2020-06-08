@@ -1,7 +1,7 @@
 .info {
   margin-bottom: $half-space;
   padding: $space $half-space 0 $half-space;
-
+  max-width: 100vw;
 
   &__list {
     display: grid;

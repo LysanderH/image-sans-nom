@@ -78,10 +78,6 @@
 
 </head>
 <body>
-<!-- Share button for facebook -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v7.0&appId=2728232140733180"></script>
 <header class="header">
     <a class="skip-main" href="#main">Allez au contenu principal</a>
     <h1 role="heading" aria-level="1" class="header__heading"><?= the_title(); ?></h1>
