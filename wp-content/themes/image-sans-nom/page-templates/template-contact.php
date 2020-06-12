@@ -1,6 +1,12 @@
 <?php /* Template Name: contact */ ?>
 <?php get_header();
 $feedback = isn_formFeedback('isn_custom_form_treatment'); ?>
+<style>
+    .main {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
 <?php if (have_posts()): while (have_posts()): the_post(); ?>
     <section class="about" aria-labelledby="about-heading">
         <h2 class="about__heading" id="about-heading" role="heading" aria-level="2">À-propos</h2>

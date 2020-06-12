@@ -81,6 +81,10 @@
 <header class="header">
     <a class="skip-main" href="#main">Allez au contenu principal</a>
     <h1 role="heading" aria-level="1" class="header__heading"><?= the_title(); ?></h1>
+    <span class="header__name header__name--top-left">L’</span>
+    <span class="header__name header__name--top-right">IMAGE</span>
+    <span class="header__name header__name--bottom-left">SANS</span>
+    <span class="header__name header__name--bottom-right">NOM</span>
     <label for="header-input-nav" class="header__label header__label--open">Ouvrir le menu</label>
     <input type="checkbox" class="header__input" id="header-input-nav">
     <nav class="nav global" role="navigation" aria-label="Principale" aria-expanded="false">

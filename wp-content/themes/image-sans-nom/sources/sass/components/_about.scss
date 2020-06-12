@@ -1,7 +1,9 @@
 .about {
   position: relative;
   display: flex;
-  max-width: 100vw;
+  justify-content: space-between;
+  margin: 0 calc-percent(66px, 1600px);
+
   @include media-query(0, 1023px) {
     flex-direction: column;
     padding: $space;
@@ -11,15 +13,20 @@
   }
 
   &__img {
-    align-self: flex-start;
+
     height: auto;
-    max-width: 100%;
-    flex: 1;
+    align-self: flex-start;
+
+    max-width: 623px;
+    width: calc-percent(623px, 1600px);
+
     box-shadow: (-$space) (-$half-space) 0px 0px $red;
     margin-right: $half-space;
     @include media-query(0, 1023px) {
+      max-width: 668px;
       box-shadow: none;
-      margin-bottom: $half-space;
+      width: 100%;
+
     }
   }
 
@@ -31,8 +38,14 @@
   }
 
   &__content {
-    flex: 1;
     @include proxima(16px, $text, $lh: 1.5);
+    max-width: 668px;
+    width: calc-percent(668px, 1600px);
+    @include media-query(0, 1023px) {
+      margin-top: $half-space;
+      width: 100%;
+    }
+
   }
 
 }
