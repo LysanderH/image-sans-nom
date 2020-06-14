@@ -31,6 +31,24 @@
     @include proxima(16px, $text, $lh: 1.2);
     max-width: 740px;
   }
+  &__embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+    margin: 16px;
+  }
+
+  &__embed-container iframe,
+  &__embed-container object,
+  &__embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 .back-btn {
   margin-bottom: $space;

@@ -37,7 +37,11 @@
             font-size: 1rem;
         }
 
-        .header__label--open, .header__label--close  {
+        .header__label--open, .header__label--close {
+            display: none;
+        }
+
+        .header__name {
             display: none;
         }
 
@@ -81,12 +85,17 @@
             <p class="exhibition__date">Du <span itemprop="startDate"> <?= get_field('startDate'); ?></span> au
                 <span itemprop="endDate"> <?= get_field('endDate'); ?></span></p>
             <?php if (get_field('poster')): ?>
-            <a href="<?= get_field('poster') ?>" class="exhibition__download" download="">Télécharger l'affiche</a>
+                <a href="<?= get_field('poster') ?>" class="exhibition__download" download="">Télécharger l'affiche</a>
             <?php endif; ?>
         </div>
         <p class="exhibition__content">
-            <?php the_content(); ?>
+            <?= get_field('isn_description'); ?>
         </p>
+        <?php if (get_field('isn_video')): ?>
+            <div class="exhibition__embed-container">
+                <?php the_field('isn_video'); ?>
+            </div>
+        <?php endif; ?>
         <!--    Get attached images  -->
         <?php $images = get_field('gallery');
 
@@ -101,10 +110,10 @@
                                  srcset="<?php echo $image['sizes']['single-mobile']; ?> 375vw, <?php echo $image['sizes']['single-tablet']; ?> 783vw, <?php echo $image['sizes']['single-desktop']; ?> 1024vw, <?php echo $image['sizes']['single-big-screens']; ?> 1280vw"
                                  sizes="(max-width: 375px) 375px, (max-width: 783px) 783px, (max-width: 1024px) 1024px, (min-width: 1280px) 1280px"
                                  alt="<?php if ($image['alt']) {
-                                echo $image['alt'];
-                            } else {
-                                echo __('Image montrant l’exposition'  . the_title(), 'isn');
-                            } ?>" class="gallery__img">
+                                     echo $image['alt'];
+                                 } else {
+                                     echo __('Image montrant l’exposition' . the_title(), 'isn');
+                                 } ?>" class="gallery__img">
                         </a>
                     </li>
                 <?php endforeach; ?>

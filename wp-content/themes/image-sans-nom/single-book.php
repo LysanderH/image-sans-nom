@@ -41,6 +41,10 @@
             display: none;
         }
 
+        .header__name {
+            display: none;
+        }
+
         .global__list {
             border: none;
             flex-direction: row;
@@ -79,11 +83,15 @@
             <span class="book__author">By <span itemprop="author"><?php the_field('author'); ?></span></span>
         </div>
         <p class="book__content" itemprop="description">
-            <?= get_the_content(); ?>
+            <?= get_field('isn_description'); ?>
         </p>
+        <?php if (get_field('isn_video')): ?>
+            <div class="book__embed-container">
+                <?php the_field('isn_video'); ?>
+            </div>
+        <?php endif; ?>
         <!--    Get attached images  -->
         <?php
-
         $images = get_field('gallery');
         if ($images): ?>
             <ul class="gallery">
@@ -94,13 +102,13 @@
                             <!-- todo: srcset -->
                             <img src="<?php echo $image['sizes']['single-mobile']; ?>"
                                  srcset="<?php echo $image['sizes']['single-mobile']; ?> 375vw, <?php echo $image['sizes']['single-tablet']; ?> 783vw, <?php echo $image['sizes']['single-desktop']; ?> 1024vw, <?php echo $image['sizes']['single-big-screens']; ?> 1280vw"
-                                 sizes="(max-width: 375px) 375px, (max-width: 783px) 783px, (max-width: 1024px) 1024px, (min-width: 1280px) 1280px"alt="<?php if ($image['alt']) {
-                                echo $image['alt'];
-                            } else {
-                                echo __('Image montrant l’exposition' . the_title(), 'isn');
-                            } ?>" class="gallery__img" itemprop="image">
+                                 sizes="(max-width: 375px) 375px, (max-width: 783px) 783px, (max-width: 1024px) 1024px, (min-width: 1280px) 1280px"
+                                 alt="<?php if ($image['alt']) {
+                                     echo $image['alt'];
+                                 } else {
+                                     echo __('Image montrant l’exposition' . the_title(), 'isn');
+                                 } ?>" class="gallery__img" itemprop="image">
                         </a>
-                        <p class="gallery__caption"><?php echo $image['caption']; ?></p>
                     </li>
                 <?php endforeach; ?>
             </ul>
